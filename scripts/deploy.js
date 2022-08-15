@@ -11,7 +11,7 @@ async function main ()
   hiveAddres = hive.address;
 
   const Vault = await ethers.getContractFactory("BNBHiveVault", owner);
-  vault = await vault.deploy(hiveAddres);
+  vault = await Vault.deploy(hiveAddres);
   await vault.deployed();
   vaultAddres = vault.address;
 
