@@ -17,7 +17,7 @@ async function main ()
 
   let tx  = await hive.setVaultAddress(vaultAddres);
   await tx.wait();
-  let tx1  = await hive.seedMarket();
+  let tx1  = await hive.connect(owner).seedMarket({value :  ethers.utils.parseEther("1")});
   await tx1.wait();
 
   console.log(`Hive address - ${hiveAddres}`);
