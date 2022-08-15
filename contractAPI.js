@@ -1,4 +1,4 @@
-const web3 = new Web3(window.ethereum);
+const web3 = new Web3('http://localhost:8545');
 const gasPriseRegistration = 250000;
 const gasBuy = 900000;
 const HiveAddress = "";
