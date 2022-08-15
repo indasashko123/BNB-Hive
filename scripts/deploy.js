@@ -4,6 +4,7 @@ const ethers = hre.ethers;
 let owner;
 async function main ()
 {  
+  [owner] = await ethers.getSigners();
   const Hive = await ethers.getContractFactory("BNBHive", owner);
   hive = await Hive.deploy(owner.address);
   await hive.deployed();
