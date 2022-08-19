@@ -17,11 +17,11 @@ contract BNBHiveVault {
     }
 
     fallback() external payable {
-        // custom function code
+        
     }
 
     receive() external payable {
-        // custom function code
+        
     }
 
     function fundHive(uint256 amount) external onlyHive {
