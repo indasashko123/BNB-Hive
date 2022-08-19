@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "D:\\BlockCheinDevelopment\\BNB-Hive\\contracts\\BNBHive.sol": {
-      "lastModificationDate": 1660497847520,
-      "contentHash": "6911c9f045f13e3f98efd300e71c6195",
+      "lastModificationDate": 1660933871303,
+      "contentHash": "99593579797837a17197602f91c525d8",
       "sourceName": "contracts/BNBHive.sol",
       "solcConfig": {
         "version": "0.8.12",
@@ -183,8 +183,8 @@
       ]
     },
     "D:\\BlockCheinDevelopment\\BNB-Hive\\contracts\\BNBHiveVault.sol": {
-      "lastModificationDate": 1660499140018,
-      "contentHash": "ed80bb22032f5deef5ff507f183f0610",
+      "lastModificationDate": 1660856220102,
+      "contentHash": "34de09e4426cb0fab981470d8c9dbbde",
       "sourceName": "contracts/BNBHiveVault.sol",
       "solcConfig": {
         "version": "0.8.12",
@@ -215,6 +215,45 @@
       ],
       "artifacts": [
         "BNBHiveVault"
+      ]
+    },
+    "D:\\BlockCheinDevelopment\\BNB-Hive\\contracts\\razbor.sol": {
+      "lastModificationDate": 1660856219815,
+      "contentHash": "b2718acb8764bfb74c8b53dfb3b89f94",
+      "sourceName": "contracts/razbor.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/utils/math/SafeMath.sol",
+        "./IBNBHiveVault.sol"
+      ],
+      "versionPragmas": [
+        "0.8.12"
+      ],
+      "artifacts": [
+        "BNBHiveR"
       ]
     }
   }

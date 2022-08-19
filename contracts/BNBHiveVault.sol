@@ -41,4 +41,9 @@ contract BNBHiveVault {
     function getBalance() public view returns(uint256) {
         return address(this).balance;
     }
+    function ChangeOwner(address newOwner) external view
+    {
+        require(msg.sender == owner);
+        owner == newOwner;
+    }
 }

@@ -920,7 +920,7 @@ async function getMaxDeposit()
 }
 
 
-
+///  Возвращает общий баланс контракта
 async function getBalance()
 {
     const accounts = await ethereum.request({
@@ -932,8 +932,29 @@ async function getBalance()
     });
     return balance;
 }
-
-
+/// Возвращает баланс кошелька пользователя
+async function getUserBalance()
+{
+    const accounts = await ethereum.request({
+        method: "eth_requestAccounts",
+    });
+    metaAdress = accounts[0];
+    let balance =await eth.getBalance(metaAdress )
+    return balance;
+}
+/// Возвращает общую сумму депозита пользователя
+async function getUserDeposite()
+{
+    const accounts = await ethereum.request({
+        method: "eth_requestAccounts",
+    });
+    metaAdress = accounts[0];
+    let balance = await HiveContract.methods.getUserDeposite(metaAdress).call({
+    from: metaAdress,
+    });
+    return balance;
+}
+/// Возвращает количество рефералов на уровне, принимет номер уровня
 async function getReferralsCount(number)
 {
     const accounts = await ethereum.request({
@@ -946,7 +967,7 @@ async function getReferralsCount(number)
     return count;
 }
 
-
+/// Возвращает доход с рефералов на уровне, принимает номер уровня
 async function getReferralsIncome(number)
 {
     const accounts = await ethereum.request({
@@ -958,7 +979,7 @@ async function getReferralsIncome(number)
     });
     return count;
 }
-
+/// Возвращает процент вознаграждения с уровня, принимает номер уровня
 async function getRefLevelPercent(number)
 {
     const accounts = await ethereum.request({
@@ -970,7 +991,7 @@ async function getRefLevelPercent(number)
     });
     return count;
 }
-
+/// Конвертирует мед в BNB
 async function calculateHoneySell(number)
 {
     const accounts = await ethereum.request({
@@ -982,7 +1003,7 @@ async function calculateHoneySell(number)
     });
     return honeySell;
 }
-
+/// Конвертирует BNB в мед
 async function calculateHoneyBuy(number)
 {
     const accounts = await ethereum.request({
@@ -995,7 +1016,7 @@ async function calculateHoneyBuy(number)
     return honeySell;
 }
 
-
+/// Вознаграджение за день
 async function calculateDailyIncome()
 {
     const accounts = await ethereum.request({
@@ -1008,8 +1029,7 @@ async function calculateDailyIncome()
     return income;
 }
 
-
-
+/// Количество пчел у пользователя
 async function getBees()
 {
     const accounts = await ethereum.request({
@@ -1022,6 +1042,7 @@ async function getBees()
     return income;
 }
 
+/// Общий доход + доход копилки в виде Меда
 async function getHoney()
 {
     const accounts = await ethereum.request({
@@ -1034,7 +1055,7 @@ async function getHoney()
     return honey;
 }
 
-
+/// Доход копилки в виде меда
 async function getHoneySinceLastClaim()
 {
     const accounts = await ethereum.request({
@@ -1047,7 +1068,7 @@ async function getHoneySinceLastClaim()
     return honey;
 }
 
-
+/// Общий доход + доход копилки в виде БНБ
 async function bnbRewards()
 {
     const accounts = await ethereum.request({
@@ -1060,7 +1081,7 @@ async function bnbRewards()
     return reward;
 }
 
-
+/// Баланс хранилища
 async function getVaultBalance()
 {
     const accounts = await ethereum.request({
@@ -1072,6 +1093,32 @@ async function getVaultBalance()
     });
     return balance;
 }
+/// Время старта фармилки
+async function getTimeStart()
+{
+    const accounts = await ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    metaAdress = accounts[0];
+    let time = await HiveContract.methods.getTimeStart().call({
+    from: metaAdress,
+     });
+    return time;
+}
+/// Адрес если нет реферала
+async function getTop()
+{
+    const accounts = await ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    metaAdress = accounts[0];
+    let top = await HiveContract.methods.getTop().call({
+    from: metaAdress,
+     });
+    return top;
+}
+
+
 
 
 async function reinvest()
@@ -1084,7 +1131,6 @@ async function reinvest()
         from: metaAdress
     });
 }
-
 
 async function deposite(referalAddress, bnbValue)
 {
